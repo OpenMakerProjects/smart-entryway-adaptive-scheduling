@@ -1,0 +1,21 @@
+{
+  "id": 20,
+  "title": "Smart Entryway Adaptive Scheduling",
+  "repository_slug": "smart-entryway-adaptive-scheduling",
+  "category": "Smart Home",
+  "platform": "Arduino Nano 33 IoT",
+  "platform_family": "arduino",
+  "difficulty": "Beginner",
+  "estimated_hours": 16,
+  "connectivity": "Local only",
+  "components": [
+    "PIR sensor",
+    "current sensor",
+    "relay module"
+  ],
+  "scope": "Build a smart home prototype that uses PIR sensor, current sensor, relay module to adjust schedules from occupancy patterns. Include setup instructions, a circuit diagram, tested firmware, and sample output.",
+  "key_deliverable": "Adaptive Scheduling demonstration with repeatable test steps",
+  "mode": "closed_loop_control",
+  "entrypoint": "firmware/smart-entryway-adaptive-scheduling/smart-entryway-adaptive-scheduling.ino",
+  "roadmap_source": "openmaker-2100-project-roadmap.xlsx"
+}
