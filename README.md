@@ -4,6 +4,8 @@ A local Arduino Nano 33 IoT demonstrator learns occupancy-event counts in 24 boo
 
 ![Original illustration of a Nano 33 IoT, PIR, INA219 current sensor, relay and small low-voltage lamp](docs/images/project-overview.png)
 
+The illustration is conceptual; follow the exact pin map and editable circuit SVG for assembly.
+
 ## Overview, objectives and features
 
 Learn a transparent occupancy rule, safe start, bounded hold times, current fault latching and wrap-safe elapsed time. Two or more rising PIR events in yesterday's same hour select a 60-second hold; fewer select 10 seconds. Motion keeps the lamp on after warmup and explicit RESET. Invalid current or ≥500 mA turns it off and latches until a safe USB RESET. OFF and unknown commands also latch it off.
