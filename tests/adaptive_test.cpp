@@ -19,4 +19,17 @@ int main(){
  a.tick(4u*86400000u,false,true,0);assert(a.previous[0]==0);
  Adaptive w;w.tick(0xfffffff0u,false,true,0);w.tick(59984,true,true,40);assert(w.elapsed==60000&&w.relay);
  w.today[0]=65535;w.tick(59985,false,true,40);w.tick(59986,true,true,40);assert(w.today[0]==65535);
+ Adaptive bins;bins.tick(0,false,true,0);
+ for(unsigned h=0;h<24;++h){
+  uint32_t base=h*3600000u+60000u;
+  bins.tick(base,true,true,40);bins.tick(base+1,false,true,0);
+  bins.tick(base+2,true,true,40);bins.tick(base+3,false,true,0);
+  assert(bins.today[h]==2);
+ }
+ bins.tick(86400000u,false,true,0);
+ for(unsigned h=0;h<24;++h){
+  assert(bins.previous[h]==2&&bins.today[h]==0);
+  bins.tick(86400000u+h*3600000u,false,true,0);
+  assert(bins.hour==h&&bins.hold==60000);
+ }
 }
