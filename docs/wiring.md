@@ -1,17 +1,5 @@
-# Wiring guide
+# Wiring
 
-This is a low-voltage prototype wiring plan for **Smart Entryway Adaptive Scheduling**. Confirm every module's datasheet because breakout-board pinouts vary.
+Follow [the editable circuit](circuit-diagram.svg) and the exact pin table in [README](../README.md). Disconnect supplies before assembly. All grounds are common and GPIO is 3.3 V.
 
-| Component | Suggested pin | Role | Check |
-| --- | --- | --- | --- |
-| PIR sensor | A0 | Analog input | Confirm the module voltage and pinout before power-up. |
-| current sensor | A1 | Analog input | Confirm the module voltage and pinout before power-up. |
-| relay module | 6 | Digital I/O | Confirm the module voltage and pinout before power-up. |
-| Status output | LED_BUILTIN | Output | Use a resistor when an external LED is fitted. |
-
-## Power
-
-- Use a regulated supply sized for the selected modules.
-- Join grounds unless an interface is explicitly isolated.
-- Do not connect mains voltage directly to a development board.
-- Add a fuse, emergency stop, and certified isolation where a real actuator can create risk.
+Nano USB positive stays separate from external 5 V. Fuse external supply at 1 A; feed PIR VCC, relay coil VCC and INA219 VIN+. INA219 VIN− → relay COM; NO → 5 V lamp+; lamp− GND. INA219 VCC3V3/SDAA4/SCLA5/GND. PIR OUTD2 ≤3.3 V; relay IND5 with 10 kΩ pulldown GND. NC unused. Never connect mains or critical loads.

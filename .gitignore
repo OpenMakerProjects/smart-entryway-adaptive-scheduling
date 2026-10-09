@@ -5,3 +5,7 @@ __pycache__/
 .idea/
 .pio/
 build/
+
+firmware/secrets.yaml
+firmware/.esphome/
+.esphome/

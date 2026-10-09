@@ -1,22 +1,5 @@
 # Test plan
 
-## Static checks
+The CI host assertions, image integrity tests and actual target build are automated. Run commands and boundary cases are in README. Physical hardware has not been tested.
 
-1. Run `python tools/validate.py`.
-2. Confirm the firmware or application starts without missing configuration.
-3. Compare the assembled wiring with `docs/wiring.md` and component datasheets.
-
-## Functional checks
-
-1. Start with simulated or disconnected actuators.
-2. Feed low, nominal, and high readings into the controller.
-3. Confirm the **closed loop control** behavior matches the serial or console output.
-4. Disconnect one sensor and confirm the system enters a safe state.
-5. Restore the sensor and verify recovery requires an intentional acknowledgement for latched safety modes.
-
-## Acceptance criteria
-
-- Telemetry includes a timestamp, state, input readings, and output state.
-- Invalid readings do not command an actuator on.
-- The output changes only after the configured threshold and debounce checks pass.
-- The steps in the README reproduce the demonstration.
+On a safe fused 5 V bench, verify PIR output levels and warmup, INA219 polarity/current accuracy and relay active-high logic. Confirm startup latch, safe RESET, 10-second first-day hold, previous-day two-event/60-second rule, current fault latch and OFF. Use a current-limited supply; do not intentionally short the load. Do not accelerate hardware results by pretending host tests measured physical behavior.

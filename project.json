@@ -16,6 +16,11 @@
   "scope": "Build a smart home prototype that uses PIR sensor, current sensor, relay module to adjust schedules from occupancy patterns. Include setup instructions, a circuit diagram, tested firmware, and sample output.",
   "key_deliverable": "Adaptive Scheduling demonstration with repeatable test steps",
   "mode": "closed_loop_control",
-  "entrypoint": "firmware/smart-entryway-adaptive-scheduling/smart-entryway-adaptive-scheduling.ino",
-  "roadmap_source": "openmaker-2100-project-roadmap.xlsx"
+  "entrypoint": "firmware/main.cpp",
+  "roadmap_source": "openmaker-2100-project-roadmap.xlsx",
+  "validation": {
+    "host": "tests/adaptive_test.cpp",
+    "target": "nano_33_iot",
+    "build": "PlatformIO"
+  }
 }
